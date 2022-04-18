@@ -1,5 +1,6 @@
 {
   "name": "blow-the-coin-react-crypto-tracker-v1",
+  "homepage": "https://www.blowthecoin.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
