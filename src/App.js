@@ -11,14 +11,6 @@ function App() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-      // axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-      // .then(res => {
-      //   console.log(res.data);
-      // })
-      // .catch(err => {
-      //   console.log(err);
-      // })
-
     const fetchData = async () => {
       try {
         const result = await axios('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
@@ -52,7 +44,16 @@ function App() {
       </div>
       {filteredCoins.map(coin => {
         return (
-          <Coin key={coin.id} name={coin.name} image={coin.image} symbol={coin.symbol} price={coin.current_price} marketCap={coin.market_cap} priceChange={coin.price_change_percentage_24h} />
+          <Coin
+          key={coin.id}
+          name={coin.name}
+          price={coin.current_price}
+          symbol={coin.symbol}
+          marketCap={coin.market_cap}
+          volume={coin.total_volume}
+          image={coin.image}
+          priceChange={coin.price_change_percentage_24h}
+          />
         )
       })}
     </div>
